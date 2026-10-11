@@ -76,7 +76,7 @@ Provide robust serialization of domain events and snapshots for EventStoreDB per
 Implement state reconstitution with snapshot replay optimization, command execution, optimistic concurrency, and automatic snapshot persistence.
 
 ### Tasks
-- [ ] **4.1 Snapshot & State Reconstitution Engine (`com.bank.account.application.AccountCommandHandler`)**:
+- [x] **4.1 Snapshot & State Reconstitution Engine (`com.bank.account.application.AccountCommandHandler`)**:
   - Define stream conventions:
     - Primary stream: `account-{accountId}`
     - Snapshot stream: `account-{accountId}-snapshots`
@@ -86,15 +86,15 @@ Implement state reconstitution with snapshot replay optimization, command execut
     3. Read forward events from `account-{accountId}` starting from `snapshotRevision + 1`.
     4. If not found, start from revision `0` with `accountDecider.initialState`.
     5. Evolve state using `accountDecider.evolve` with the fetched delta events.
-- [ ] **4.2 Command Execution & Concurrency**:
+- [x] **4.2 Command Execution & Concurrency**:
   - Invoke `accountDecider.decide(command, currentState)`.
   - Append new events to `account-{accountId}` with `ExpectedRevision.expectedRevision(currentStreamRevision)`.
-- [ ] **4.3 Snapshot Trigger Logic**:
+- [x] **4.3 Snapshot Trigger Logic**:
   - Calculate `eventsSinceLastSnapshot = newStreamRevision - lastSnapshotRevision`.
   - If `eventsSinceLastSnapshot >= 10`:
     - Compute `newSnapshotState = accountDecider.evolve(currentState, newEvents)`.
     - Append `AccountSnapshot(newSnapshotState, newStreamRevision, Instant.now())` to `account-{accountId}-snapshots`.
-- [ ] **4.4 Integration Tests for Snapshotting (`AccountSnapshotIntegrationTest`)**:
+- [x] **4.4 Integration Tests for Snapshotting (`AccountSnapshotIntegrationTest`)**:
   - Append 9 events -> Verify snapshot stream is empty; reconstitution replays 9 events.
   - Append 10th & 11th event -> Verify snapshot is written with revision.
   - Append 12th event -> Verify reconstitution loads snapshot and replays only delta events.
