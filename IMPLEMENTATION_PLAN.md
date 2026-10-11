@@ -65,7 +65,7 @@ Provide robust serialization of domain events and snapshots for EventStoreDB per
   - Configure `Json` configuration with polymorphic serialization for `AccountEvent`.
   - Define `AccountSnapshot(state, snapshotRevision, timestamp)` with serialization support.
   - Helper functions to convert between domain objects and EventStoreDB `EventData` / `ResolvedEvent`.
-- [ ] **3.2 EventStoreDB Client Factory (`com.bank.account.infra.eventstore`)**:
+- [x] **3.2 EventStoreDB Client Factory (`com.bank.account.infra.eventstore`)**:
   - Factory to initialize `EventStoreDBClient` targeting `esdb://localhost:2113?tls=false`.
 
 ---
