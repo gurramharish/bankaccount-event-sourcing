@@ -41,12 +41,12 @@ Implement the domain logic as pure functions using `fmodel` without side effects
   - `AccountCommand` sealed hierarchy: `Deposit`, `Withdraw`.
   - `AccountEvent` sealed hierarchy: `Deposited`, `Withdrawn`.
   - Custom domain exceptions: `InsufficientFundsException`, `InvalidAmountException`.
-- [ ] **2.2 The Decider (`com.bank.account.domain.AccountDecider`)**:
+- [x] **2.2 The Decider (`com.bank.account.domain.AccountDecider`)**:
   - Define `accountDecider: Decider<AccountCommand, AccountState, AccountEvent>`:
     - `initialState = AccountState()`
     - Pure `decide` lambda: enforces non-negative/positive amounts, checks sufficient balance on `Withdraw`, emits events.
     - Pure `evolve` lambda: deterministic fold computing new `AccountState` given current state and an `AccountEvent`.
-- [ ] **2.3 Unit Testing (`com.bank.account.domain.AccountDeciderTest`)**:
+- [x] **2.3 Unit Testing (`com.bank.account.domain.AccountDeciderTest`)**:
   - Test initial state.
   - Test valid deposit -> emits `Deposited`, updates balance.
   - Test valid withdrawal -> emits `Withdrawn`, decrements balance.
@@ -61,7 +61,7 @@ Implement the domain logic as pure functions using `fmodel` without side effects
 Provide robust serialization of domain events and snapshots for EventStoreDB persistence.
 
 ### Tasks
-- [ ] **3.1 Event & Snapshot Serializer (`com.bank.account.infra.serialization`)**:
+- [x] **3.1 Event & Snapshot Serializer (`com.bank.account.infra.serialization`)**:
   - Configure `Json` configuration with polymorphic serialization for `AccountEvent`.
   - Define `AccountSnapshot(state, snapshotRevision, timestamp)` with serialization support.
   - Helper functions to convert between domain objects and EventStoreDB `EventData` / `ResolvedEvent`.
