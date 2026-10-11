@@ -10,7 +10,7 @@ This implementation plan details the step-by-step phases to build the applicatio
 Establish the project skeleton, configure Maven build tooling with Kotlin and Kotlinx Serialization, and provide the containerized runtime infrastructure.
 
 ### Tasks
-- [ ] **1.1 Maven Configuration (`pom.xml`)**:
+- [x] **1.1 Maven Configuration (`pom.xml`)**:
   - Configure `kotlin-maven-plugin` with Kotlin 2.x and JVM 21 target.
   - Enable `kotlinx-serialization` compiler plugin.
   - Add dependencies:
@@ -21,10 +21,10 @@ Establish the project skeleton, configure Maven build tooling with Kotlin and Ko
     - `org.postgresql:postgresql:42.7.4`
     - `com.zaxxer:HikariCP:5.1.0`
     - Testing: `org.junit.jupiter:junit-jupiter:5.11.0`, `org.jetbrains.kotlin:kotlin-test-junit5`, `io.kotest:kotest-assertions-core:5.9.1`, `org.testcontainers:testcontainers:1.20.2`, `org.testcontainers:postgresql:1.20.2`.
-- [ ] **1.2 Docker Infrastructure (`docker-compose.yml`)**:
+- [x] **1.2 Docker Infrastructure (`docker-compose.yml`)**:
   - EventStoreDB service: image `eventstore/eventstore:24.10.0-lts-bookworm-slim`, insecure mode, exposed on port `2113`.
   - PostgreSQL service: image `postgres:16-alpine`, exposed on port `5432`, db `bank_account_read_model`.
-- [ ] **1.3 Sanity Verification**:
+- [x] **1.3 Sanity Verification**:
   - Run `mvn compile` to verify POM validity and Kotlin compiler plugins.
 
 ---
