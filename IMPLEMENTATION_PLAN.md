@@ -35,7 +35,7 @@ Establish the project skeleton, configure Maven build tooling with Kotlin and Ko
 Implement the domain logic as pure functions using `fmodel` without side effects, framework couplings, or external I/O.
 
 ### Tasks
-- [ ] **2.1 Domain Models (`com.bank.account.domain.model`)**:
+- [x] **2.1 Domain Models (`com.bank.account.domain.model`)**:
   - `AccountId` (inline value class).
   - `AccountState(accountId, balance, isInitialized)`.
   - `AccountCommand` sealed hierarchy: `Deposit`, `Withdraw`.
